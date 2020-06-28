@@ -3,7 +3,7 @@ import './App.css';
 import Axios from 'axios'
 import socketIOClient from 'socket.io-client';
 
-var socket = socketIOClient.connect("http://chatvm1.azurewebsites.net/teste");
+var socket = socketIOClient.connect("http://chatvm1.azurewebsites.net/");
 
 class Chat_app extends Component {
 	constructor (props) {
@@ -20,7 +20,7 @@ class Chat_app extends Component {
 	async getPreviousMessages() {
 		await Axios({
 			method:"GET",
-			url:"http://localhost:3333/message/getPreviousMessages",
+			url:"http://chatvm1.azurewebsites.net/message/getPreviousMessages",
 			headers: { "Access-Control-Allow-Origin": "*" }
 		}).then((response)=> {
 			this.setState({
